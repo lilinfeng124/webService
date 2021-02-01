@@ -34,6 +34,7 @@ import org.springframework.web.client.RestTemplate;
 import webservice.nari.AuthDto.AccidDTO;
 import webservice.nari.AuthDto.AuthDto;
 import webservice.nari.AuthDto.TokenDTO;
+import webservice.nari.AuthDto.WaveDTO;
 import webservice.nari.ConstStr.ConstStr;
 import webservice.nari.ConstStr.ServiceError;
 import webservice.nari.DataDefine.DeviceInfoDto;
@@ -227,13 +228,13 @@ public class webService {
 
         RestPostTemplate<List> restPostTemp = new RestPostTemplate<>();
         //可以批量更新
-        return restPostTemp.PostRequest("?",tokenDTO.getToken(),lst);
+        return restPostTemp.PostRequest("fault/v1/upload",tokenDTO.getToken(),lst);
 
     }
 
     /**
 
-     *@描述 故障数据上送
+     *@描述 故障波形数据上送
 
      *@参数
 
@@ -246,21 +247,20 @@ public class webService {
      *@修改人和其它信息
 
      */
-    public ServiceError UploadWaveData(AccidDTO dto){
+    public ServiceError UploadWave(WaveDTO dto){
         ServiceError error = CheckTokenValid();
         if(error!=ServiceError.SERVICE_OK){
             return error;
         }
 
-        List<AccidDTO>lst = new ArrayList<>();
+        List<WaveDTO>lst = new ArrayList<>();
         lst.add(dto);
 
         RestPostTemplate<List> restPostTemp = new RestPostTemplate<>();
         //可以批量更新
-        return restPostTemp.PostRequest("?",tokenDTO.getToken(),lst);
+        return restPostTemp.PostRequest("faultWave/v1/upload",tokenDTO.getToken(),lst);
 
     }
-
 
 
     /**
@@ -398,7 +398,7 @@ public class webService {
 
     /**
 
-     *@描述 更新装置在线情况
+     *@描述 更新装置在线情况（废弃）
 
      *@参数
 
@@ -411,6 +411,7 @@ public class webService {
      *@修改人和其它信息
 
      */
+    /*
     public ServiceError UpdateDevOnline(String strDev,int nOnline,String strDateTime){
 
         String url = BaseUrl +"devices/v1/updateStatus?access_token="+Token;
@@ -454,7 +455,7 @@ public class webService {
             System.out.println(e);
             return ServiceError.SERVICE_ACESS_EXCEPTION;
         }
-    }
+    }*/
 
     /**
 

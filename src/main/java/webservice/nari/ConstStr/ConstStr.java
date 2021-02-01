@@ -32,6 +32,14 @@ public class ConstStr {
     //2020-09-28 13:01:01
     public static String GANSU_TIME_FORMAT = "yyyy-MM-dd hh:mm:ss";
 
+    static public int TRAVEL_WAVE_TYPE = 0;
+    static public int PUBLIC_FREQUENCY_TYPE = 1;
+
+    //甘肃接口中行波
+    static public int GANSU_WAVE_TYPE = 2;
+    //甘肃接口中工频
+    static public int GANSU_FREQUENCY_TYPE = 1;
+
     public static int ONLINE_STATUS = 1;
     public static int OFFLINE_STATUS = 0;
 }
