@@ -96,6 +96,115 @@ public class webService {
             return ServiceError.SERVICE_OK;
         }
     }
+
+    /**
+
+     *@描述   批量提交线路信息
+
+     *@参数
+
+     *@返回值
+
+     *@创建人  zh
+
+     *@创建时间  2021/2/3
+
+     *@修改人和其它信息
+
+     */
+    public ServiceError CommitLineList(List<Map<String,String>>lst){
+
+        ServiceError error = CheckTokenValid();
+        if(error!=ServiceError.SERVICE_OK){
+            return error;
+        }
+
+        RestPostTemplate<List> restPostTemp = new RestPostTemplate<>();
+        //可以批量更新
+        return restPostTemp.PostRequest("lines/v1/update",tokenDTO.getToken(),lst);
+    }
+
+    /**
+
+     *@描述   批量提交杆塔信息
+
+     *@参数
+
+     *@返回值
+
+     *@创建人  zh
+
+     *@创建时间  2021/2/3
+
+     *@修改人和其它信息
+
+     */
+    public ServiceError CommitTowerList(List<Map<String,String>>lst){
+
+        ServiceError error = CheckTokenValid();
+        if(error!=ServiceError.SERVICE_OK){
+            return error;
+        }
+
+        RestPostTemplate<List> restPostTemp = new RestPostTemplate<>();
+        //可以批量更新
+        return restPostTemp.PostRequest("towers/v1/update",tokenDTO.getToken(),lst);
+    }
+
+    /**
+
+     *@描述   批量提交装置信息
+
+     *@参数
+
+     *@返回值
+
+     *@创建人  zh
+
+     *@创建时间  2021/2/3
+
+     *@修改人和其它信息
+
+     */
+    public ServiceError CommitDeviceList(List<Map<String,String>>lst){
+
+        ServiceError error = CheckTokenValid();
+        if(error!=ServiceError.SERVICE_OK){
+            return error;
+        }
+
+        RestPostTemplate<List> restPostTemp = new RestPostTemplate<>();
+        //可以批量更新
+        return restPostTemp.PostRequest("devices/v1/update",tokenDTO.getToken(),lst);
+    }
+
+    /**
+
+     *@描述   批量提交杆塔-装置信息
+
+     *@参数
+
+     *@返回值
+
+     *@创建人  zh
+
+     *@创建时间  2021/2/3
+
+     *@修改人和其它信息
+
+     */
+    public ServiceError CommitTowerDeviceList(List<Map<String,String>>lst){
+
+        ServiceError error = CheckTokenValid();
+        if(error!=ServiceError.SERVICE_OK){
+            return error;
+        }
+
+        RestPostTemplate<List> restPostTemp = new RestPostTemplate<>();
+        //可以批量更新
+        return restPostTemp.PostRequest("towerDevices/v1/update",tokenDTO.getToken(),lst);
+    }
+
 /**
 
  *@描述   装置在线情况更新
