@@ -13,6 +13,7 @@ public enum ServiceError {
     ,SERVICE_NOTOKEN_ERROR(003,"服务器没有返回token")
     ,SERVICE_FORMAT_ERROR(004,"返回报文格式错误")
     ,SERVICE_TOKEN_INVALID(005,"token失效了")
+    ,DATABASE_OPERATION_FAIL(005,"本地数据库操作失败")
     ;
 
     private String msg;
