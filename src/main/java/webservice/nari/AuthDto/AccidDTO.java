@@ -28,4 +28,5 @@ public class AccidDTO {
     public String captureTime;
     public String uploadTime;
     public String localCityCode;
+    public String faultReason;//故障原因
 }

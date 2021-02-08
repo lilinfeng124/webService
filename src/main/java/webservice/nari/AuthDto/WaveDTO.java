@@ -19,6 +19,7 @@ public class WaveDTO {
     public String waveIndex;
     public String waveType;
     public String faultTowerName;
+    public String faultTowerObjId;
     public String waveData;
     public String captureTime;
     public String uploadTime;
